@@ -1,0 +1,57 @@
+Approach 2:
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        int n = nums.size(); // Step 1
+        int count = 0; // Step 2
+        
+        for (int i = 0; i < n; i++) { // Step 3
+            if (nums[i] > nums[(i + 1) % n]) { // Step 4
+                count++; // Step 5
+            }
+        }
+        
+        return count <= 1; // Step 6
+    }
+};
+
+Tc=O(n)   sp=O(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+        
+        vector<int>ans(nums.begin(),nums.end());    // sp=O(n)
+        sort(nums.begin(),nums.end());            //Tc=O(nlogn)
+        for(int i=0;i<nums.size();i++){
+            if(nums==ans){                         //Tc=O(n)
+                return true;
+                
+            }
+            rotate(nums.begin(),nums.begin()+1,nums.end());     Tc= O(n)
+        }
+        return false;
+                                                        Total= TC=O(n^2)
+    }
+};
+
+
+
